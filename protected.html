@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected Content</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="scripts/config.js"></script>
+    <script src="scripts/auth.js"></script>
+</head>
 
+<body onload="checkAccess()">
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="members/noah.html">Noah</a>
+        <a href="members/henry.html">Henry</a>
+        <a href="members/roberto.html">Roberto</a>
+        <a href="members/juan.html">Juan</a>
+    </nav>
+</header>
+
+<h2>Protected Content</h2>
+
+<!-- Login Box (Visible only if NOT authenticated) -->
+<div id="login-box">
+    <p>This content is protected. Please enter the password:</p>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Submit</button>
+    <p id="error"></p>
+</div>
+
+<!-- Private Content (Visible only after authentication) -->
+<div id="private-content" style="display:none;">
+    <p>You are logged in. Select a stored message to view:</p>
+
+    <h3>Messages</h3>
+    <ul id="messageList">
+        <!-- JS loads message links here dynamically -->
+    </ul>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("auth");
+    location.reload();
+}
+</script>
+
+</body>
+</html>
