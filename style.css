@@ -1,0 +1,84 @@
+
+/* GLOBAL STYLES (Background + Text)        */
+body {
+    background: black;
+    color: #ffcc00; /* Iowa Gold */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* HEADER                                   */
+header {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* NAVIGATION BAR                            */
+nav {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 12px;
+}
+
+nav a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+
+/* HOMEPAGE: TEAM SECTION                    */
+.team-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #333;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.card a {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.card a:hover {
+    opacity: 0.7;
+}
+
+
+/* MEMBER PAGE: PROFILE SECTION              */
+.profile {
+    text-align: center;
+    padding: 30px;
+}
+
+.profile-img {
+    width: 250px;
+    border-radius: 15px;
+    border: 3px solid #ffcc00;
+    margin-bottom: 20px;
+}
