@@ -13,7 +13,5 @@ config_path = "config.js"
 with open(config_path, "w") as f:
     f.write(f'const storedHash = "{new_hash}";\n')
 
-print("\n✔ Password updated successfully!")
-print(f"✔ New SHA-256 Hash: {new_hash}")
-print("✔ config.js updated.\n")
+print ({new_hash})
 
