@@ -28,6 +28,7 @@ async function login() {
         location.reload();
     } else {
         document.getElementById("error").innerText = "Incorrect password.";
+        document.getElementById("error").innerText = userHash;
     }
 }
 
