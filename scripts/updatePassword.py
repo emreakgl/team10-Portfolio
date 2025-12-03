@@ -1,12 +1,8 @@
 import hashlib
 
-
-print("\n--- Update Website Password ---\n")
 new_password = input("Enter NEW password: ")
 
-
 new_hash = hashlib.sha256(new_password.encode()).hexdigest()
-
 
 config_path = "config.js"
 
