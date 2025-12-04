@@ -51,10 +51,10 @@ function logout() {
 
     <script>
 async function loadMessages() {
-    const username = "YOUR_GITHUB_USERNAME";
-    const repo = "YOUR_REPO_NAME";
+    const username = "emreakgl";
+    const repo = "team10-Portfolio";
 
-    const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/protected/messages`;
+    const apiURL = `https://api.github.com/repos/emreakgl/team10-Portfolio/contents/protected/messages`;
 
     try {
         const response = await fetch(apiURL);
@@ -68,7 +68,7 @@ async function loadMessages() {
                 const li = document.createElement("li");
 
                 // Public GitHub Pages URL for each file
-                const fileURL = `https://${username}.github.io/${repo}/protected/messages/${file.name}`;
+                const fileURL = `https://emreakgl.github.io/team10-Portfolio/protected/messages/${file.name}`;
 
                 li.innerHTML = `<a href="${fileURL}" target="_blank">${file.name}</a>`;
                 list.appendChild(li);
