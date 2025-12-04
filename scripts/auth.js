@@ -61,7 +61,7 @@ function loadMessages() {
 
     // Add your message filenames here OR dynamically generate them
     const messages = [
-        "sample.html"
+
         // When you generate new messages, add them here automatically
     ];
 
