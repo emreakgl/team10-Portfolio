@@ -62,5 +62,6 @@ function checkAccess() {
 // =============================
 function logout() {
     sessionStorage.removeItem("auth");
+    console.log('User logged out.');
     location.reload();
 }
