@@ -7,8 +7,6 @@ MESSAGE_DIR = "../protected/messages/"
 os.makedirs(MESSAGE_DIR, exist_ok=True)
 
 
-print("\n--- Create New Protected Message ---\n")
-
 sender = input("Sender Name: ")
 email = input("Sender Email: ")
 message = input("Message: ")
