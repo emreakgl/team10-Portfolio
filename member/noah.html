@@ -23,16 +23,18 @@
 
     <section class="profile">
         <img src="https://emreakgl.github.io/team10-Portfolio/assets/img/Noah.jpg"   
-             alt="Juan's Photo." 
+             alt="Noah Photo 1" 
              class="profile-img">
 
         <img src="https://emreakgl.github.io/team10-Portfolio/assets/img/NE.jpg"
-             alt="Juan's Photo."
+             alt="Noah Photo 2"
              class="profile-img">
 
-
         <h2>About Noah</h2>
-        <p>Noah is currently a Senior at the University of Iowa. He is currently studying Computer Science Engineering and hopes to obtain and move out of Iowa at the end of the year. He hopes this class will teach him what it takes to be sucessful in the business world.</p>
+        <p>Noah is currently a Senior at the University of Iowa. He is studying 
+           Computer Science Engineering and hopes to move out of Iowa at the 
+           end of the year. He hopes this class will teach him what it takes 
+           to be successful in the business world.</p>
     </section>
 
     <section class="contact-section">
@@ -50,13 +52,34 @@
 
             <p class="note">
                 Note: This form does not submit automatically.  
-                Messages must be manually transferred and saved using the 
-                <strong>generate_msg.py</strong> offline script.
+                Messages are sent to our backend server.
             </p>
 
-            <button type="button">Submit</button>
+            <button type="button" onclick="sendMessage()">Submit</button>
         </form>
     </section>
+
+
+    <script>
+    function sendMessage() {
+        const name = document.getElementById("senderName").value;
+        const email = document.getElementById("senderEmail").value;
+        const message = document.getElementById("senderMessage").value;
+
+        fetch("https://b875db2c-9018-4deb-bbfa-a05786e963f5-00-2oubx3qe08z6m.kirk.replit.dev/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert("Message saved on backend as: " + data.file);
+        })
+        .catch(err => {
+            alert("Error sending message: " + err);
+        });
+    }
+    </script>
 
 </body>
 </html>
