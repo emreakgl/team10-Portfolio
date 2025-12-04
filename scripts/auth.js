@@ -22,13 +22,13 @@ async function login() {
 
     const userHash = await sha256(input);
 
-    // storedHash is loaded from config.js
     if (userHash === storedHash) {
         sessionStorage.setItem("auth", "true");
+
+        // reload protected page and show messages
         location.reload();
     } else {
         document.getElementById("error").innerText = "Incorrect password.";
-        document.getElementById("error").innerText = userHash;
     }
 }
 
@@ -41,40 +41,19 @@ function checkAccess() {
     if (loggedIn === "true") {
         // Hide login box
         document.getElementById("login-box").style.display = "none";
-        // Show private content
+
+        // Show private area
         document.getElementById("private-content").style.display = "block";
 
-        loadMessages();  // Load message list
+        // Load messages from GitHub
+        loadMessages();
     } else {
         // Show login box
         document.getElementById("login-box").style.display = "block";
+
         // Hide private content
         document.getElementById("private-content").style.display = "none";
     }
-}
-
-// =============================
-// LOAD MESSAGE FILES DYNAMICALLY
-// =============================
-function loadMessages() {
-    const messageList = document.getElementById("messageList");
-
-    // Add your message filenames here OR dynamically generate them
-    const messages = [
-
-        // When you generate new messages, add them here automatically
-    ];
-
-    messages.forEach(msg => {
-        const li = document.createElement("li");
-        const link = document.createElement("a");
-
-        link.href = `protected/messages/${msg}`;
-        link.innerText = msg;
-
-        li.appendChild(link);
-        messageList.appendChild(li);
-    });
 }
 
 // =============================
@@ -84,4 +63,3 @@ function logout() {
     sessionStorage.removeItem("auth");
     location.reload();
 }
-
