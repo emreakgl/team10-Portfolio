@@ -36,5 +36,28 @@
         <p>Short intro about Juan goes here.</p>
     </section>
 
+        <section class="contact-section">
+        <h3>Contact Juan</h3>
+
+        <form id="contactForm">
+            <label>Your Name</label>
+            <input type="text" id="senderName" placeholder="Your Name" required>
+
+            <label>Your Email</label>
+            <input type="email" id="senderEmail" placeholder="you@example.com" required>
+
+            <label>Your Message</label>
+            <textarea id="senderMessage" placeholder="Write your message here..." required></textarea>
+
+            <p class="note">
+                Note: This form does not submit automatically.  
+                Messages must be manually transferred and saved using the 
+                <strong>generate_msg.py</strong> offline script.
+            </p>
+
+            <button type="button">Submit</button>
+        </form>
+    </section>
+
 </body>
 </html>
