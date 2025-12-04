@@ -14,7 +14,7 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="member/noah.html">Noah</a>
-        <a href="member/emre.html">Henry</a>
+        <a href="member/emre.html">Emre</a>
         <a href="member/roberto.html">Roberto</a>
         <a href="member/juan.html">Juan</a>
     </nav>
@@ -22,7 +22,7 @@
 
 <h2>Protected Content</h2>
 
-<!-- Login Box (Visible only if NOT authenticated) -->
+<!-- Login Box -->
 <div id="login-box">
     <p>This content is protected. Please enter the password:</p>
     <input type="password" id="password" placeholder="Enter Password">
@@ -30,14 +30,12 @@
     <p id="error"></p>
 </div>
 
-<!-- Private Content (Visible only after authentication) -->
+<!-- Private Content -->
 <div id="private-content" style="display:none;">
     <p>You are logged in. Select a stored message to view:</p>
 
     <h3>Messages</h3>
-    <ul id="messageList">
-        <!-- JS loads message links here dynamically -->
-    </ul>
+    <ul id="messageList"></ul>
 
     <button onclick="logout()">Logout</button>
 </div>
@@ -49,7 +47,37 @@ function logout() {
 }
 </script>
 
+<script>
+async function loadMessages() {
+    const username = "emreakgl";
+    const repo = "team10-Portfolio";
 
+    const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/protected/messages`;
+
+    try {
+        const response = await fetch(apiURL);
+        const files = await response.json();
+
+        const list = document.getElementById("messageList");
+        list.innerHTML = "";
+
+        files.forEach(file => {
+            if (file.name.endsWith(".html")) {
+                const li = document.createElement("li");
+
+                const fileURL = `https://${username}.github.io/${repo}/protected/messages/${file.name}`;
+
+                li.innerHTML = `<a href="${fileURL}" target="_blank">${file.name}</a>`;
+                list.appendChild(li);
+            }
+        });
+
+    } catch (e) {
+        console.error("Error loading messages:", e);
+        document.getElementById("messageList").innerHTML = "<li>Error loading messages.</li>";
+    }
+}
+</script>
 
 </body>
 </html>
