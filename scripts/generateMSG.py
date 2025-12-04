@@ -11,16 +11,12 @@ sender = input("Sender Name: ")
 email = input("Sender Email: ")
 message = input("Message: ")
 
-timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-filename_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+timestamp = datetime.now()
+filename_time = datetime.now().strftime("%m%d%Y_%H%M%S")
 
 filename = f"msg_{filename_time}.html"
 filepath = os.path.join(MESSAGE_DIR, filename)
 
-
-# ==============================
-# HTML TEMPLATE
-# ==============================
 
 html_content = f"""
 <!DOCTYPE html>
@@ -42,13 +38,10 @@ html_content = f"""
 </html>
 """
 
-# ==============================
-# WRITE FILE
-# ==============================
+
 
 with open(filepath, "w") as f:
     f.write(html_content)
 
-print(f"\n✔ Message saved as: {filepath}")
-print("✔ Add this filename to auth.js in the message list.\n")
+print(f" {filepath}")
 

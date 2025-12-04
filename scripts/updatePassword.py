@@ -9,5 +9,3 @@ config_path = "config.js"
 with open(config_path, "w") as f:
     f.write(f'const storedHash = "{new_hash}";\n')
 
-print ({new_hash})
-
