@@ -9,9 +9,7 @@ async function sha256(message) {
     return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-// =============================
-// LOGIN FUNCTION
-// =============================
+
 async function login() {
     const input = document.getElementById("password").value;
 
@@ -33,9 +31,7 @@ async function login() {
     }
 }
 
-// =============================
-// CHECK IF USER IS LOGGED IN
-// =============================
+
 function checkAccess() {
     const loggedIn = sessionStorage.getItem("auth");
 
@@ -57,9 +53,7 @@ function checkAccess() {
     }
 }
 
-// =============================
-// LOGOUT FUNCTION
-// =============================
+
 function logout() {
     sessionStorage.removeItem("auth");
     location.reload();
